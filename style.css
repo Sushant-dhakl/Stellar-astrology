@@ -1,0 +1,205 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* General Styles */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* Contact Page Background */
+body.contact {
+  background-image: url('c.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Home Page Background */
+body.home {
+  background-image: url('a.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Services Page Background */
+body.services {
+  background-image: url('b.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Header */
+header {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  color: #ff4500;
+}
+
+/* Navigation */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff4500;
+}
+
+/* Home Hero Section */
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 30px;
+  color: #fff;
+  animation: fadeIn 2s ease;
+}
+
+/* Contact Form */
+.container {
+  max-width: 500px;
+  margin: 5px auto;
+  padding: 20px;
+  border-radius: 100px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+button[type="submit"],
+.home-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.home-button {
+  background-color: #ff6347;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.home-button:hover {
+  background-color: #ff4500;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.social-links img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.social-links a:hover {
+  color: #4CAF50;
+}
+
+/* Service Cards */
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 20px;
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.service-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.service-card h3 {
+  color: #ff4500;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+footer p {
+  margin: 0;
+  color: #fff;
+}
