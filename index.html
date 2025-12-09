@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stellar Astrology & Vastu</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -20,13 +24,25 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      text-align: center;
     }
 
     header h1 {
       margin: 0;
       color: #ff4500;
       font-size: 32px;
+      text-align: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: 26px;
+      position: absolute;
+      top: 25px;
+      right: 20px;
     }
 
     nav ul {
@@ -36,6 +52,7 @@
       display: flex;
       justify-content: center;
       gap: 30px;
+      transition: all 0.3s ease;
     }
 
     nav a {
@@ -47,6 +64,29 @@
 
     nav a:hover {
       color: #ff4500;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        display: none;
+        text-align: center;
+        gap: 20px;
+        padding: 20px 0;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
     }
 
     .hero {
@@ -148,13 +188,63 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .featured-article {
+  margin: 60px auto;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.8);
+  border-left: 5px solid #ff4500;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  animation: fadeInUp 1.2s ease;
+}
+
+.featured-article h3 {
+  color: #ff4500;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.featured-article p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.featured-article span {
+  display: block;
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.featured-article a {
+  display: inline-block;
+  padding: 12px 26px;
+  background: transparent;
+  color: #ff4500;
+  border: 2px solid #ff4500;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.featured-article a:hover {
+  background: #ff4500;
+  color: #fff;
+  transform: scale(1.05);
+}
+
   </style>
 </head>
 <body>
+
   <header>
     <h1>Stellar Astrology & Vastu</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <nav>
-      <ul>
+      <ul id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="blog.html">Blog & Articles</a></li>
@@ -162,6 +252,8 @@
       </ul>
     </nav>
   </header>
+
+
 
   <section class="hero" id="home">
     <div class="hero-content">
@@ -178,6 +270,19 @@
       <p>Our services are led by Dr. Sunita Dhakal, an experienced astrologer with over five years of professional practice in astrology and Vastu.</p>
       <img src="profile.jpeg" alt="Dr. Sunita Dhakal" class="me">
     </div>
+
+      <section class="featured-article">
+  <h3>Featured Article</h3>
+  <p>
+    Mantras are powerful sound vibrations that influence the mind, body, and spiritual energy.
+    This article explores their deep meaning and real-life significance.
+  </p>
+  <span>Published on ReviewNepal.com</span>
+  <a href="https://reviewnepal.com/articles/what-is-mantra-what-are-the-significant-importance-of-mantras.html" 
+     target="_blank" rel="noopener noreferrer">
+    Read the Full Article →
+  </a>
+</section>
 
     <div class="feature">
       <h3>Online Consultations</h3>
@@ -198,5 +303,12 @@
   <footer>
     <p>&copy; 2023 Stellar Astrology & Vastu. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("nav-list");
+      menu.classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
