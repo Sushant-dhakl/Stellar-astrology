@@ -3,312 +3,700 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stellar Astrology & Vastu</title>
+  <title>Stellar Astrology & Vastu | Dr. Sunita Dhakal</title>
+  <meta name="description" content="Premium Vedic Astrology & Vastu Shastra consultations with Dr. Sunita Dhakal. Birth chart analysis, kundali, daily horoscope, and personalized guidance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --navy:#050d1a; --deep:#081428; --midnight:#0a1e35;
+      --gold:#c9a84c; --gold-light:#e8c97e; --silver:#a8b8cc;
+      --white:#f0eee8; --accent:#7b4f9e;
     }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: #1a1a1a url('a.jpg') center/cover no-repeat;
-      color: #fff;
-      scroll-behavior: smooth;
+    /* STARS */
+    .stars-bg{position:fixed;inset:0;pointer-events:none;z-index:0;
+      background:radial-gradient(ellipse at 20% 10%,rgba(123,79,158,.18) 0%,transparent 50%),
+      radial-gradient(ellipse at 80% 90%,rgba(201,168,76,.12) 0%,transparent 50%),var(--navy)}
+    .stars-bg::before{content:'';position:absolute;inset:0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%,rgba(255,255,255,.6) 0%,transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 5%,rgba(255,255,255,.7) 0%,transparent 100%),
+        radial-gradient(1px 1px at 70% 25%,rgba(255,255,255,.6) 0%,transparent 100%),
+        radial-gradient(1px 1px at 90% 10%,rgba(201,168,76,.5) 0%,transparent 100%),
+        radial-gradient(1px 1px at 55% 70%,rgba(255,255,255,.5) 0%,transparent 100%),
+        radial-gradient(1.5px 1.5px at 35% 60%,rgba(255,255,255,.6) 0%,transparent 100%),
+        radial-gradient(1px 1px at 25% 40%,rgba(255,255,255,.4) 0%,transparent 100%),
+        radial-gradient(1px 1px at 75% 75%,rgba(201,168,76,.4) 0%,transparent 100%),
+        radial-gradient(1px 1px at 15% 80%,rgba(255,255,255,.5) 0%,transparent 100%);
+      animation:twinkle 8s ease-in-out infinite alternate}
+    @keyframes twinkle{0%{opacity:.7}100%{opacity:1}}
+
+    /* HEADER */
+    header{position:sticky;top:0;width:100%;z-index:1000;
+      background:rgba(5,13,26,.88);backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(201,168,76,.2);
+      padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:72px;transition:all .3s}
+    header.scrolled{background:rgba(5,13,26,.98);height:60px}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--accent));
+      border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+    .logo-text{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--gold);display:block;letter-spacing:.05em}
+    .logo-sub{font-size:11px;color:var(--silver);letter-spacing:.15em;text-transform:uppercase;display:block}
+    nav{display:flex;align-items:center;gap:36px}
+    nav a{font-family:'Cinzel',serif;font-size:12px;color:var(--silver);text-decoration:none;
+      letter-spacing:.1em;text-transform:uppercase;transition:color .3s;position:relative}
+    nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;
+      background:var(--gold);transform:scaleX(0);transition:transform .3s}
+    nav a:hover{color:var(--gold)}
+    nav a:hover::after{transform:scaleX(1)}
+    .nav-cta{background:linear-gradient(135deg,var(--gold),#a07830)!important;
+      color:var(--navy)!important;padding:10px 24px!important;border-radius:4px;font-weight:600!important}
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(201,168,76,.4)}
+    .nav-cta::after{display:none!important}
+    .menu-btn{display:none;background:none;border:none;color:var(--gold);font-size:24px;cursor:pointer}
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
+      position:relative;z-index:1;padding:120px 40px 80px;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background-image:url('a.jpg');
+      background-size:cover;background-position:center;opacity:.25}
+    .hero-bg::after{content:'';position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(5,13,26,.3) 0%,rgba(5,13,26,.7) 60%,var(--navy) 100%)}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:900px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;
+      background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);
+      padding:8px 20px;border-radius:50px;font-family:'Cinzel',serif;
+      font-size:11px;letter-spacing:.2em;color:var(--gold-light);text-transform:uppercase;
+      margin-bottom:32px;animation:fadeUp 1s ease .2s both}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,100px);
+      font-weight:300;line-height:1.05;margin-bottom:28px;animation:fadeUp 1s ease .4s both}
+    .hero h1 em{font-style:italic;color:var(--gold);display:block}
+    .hero-desc{font-size:18px;font-weight:300;color:var(--silver);line-height:1.8;
+      max-width:600px;margin:0 auto 48px;animation:fadeUp 1s ease .6s both}
+    .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s ease .8s both}
+    .btn-primary{background:linear-gradient(135deg,var(--gold),#a07830);color:var(--navy);
+      padding:16px 36px;border-radius:4px;font-family:'Cinzel',serif;font-size:13px;
+      font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+      transition:all .3s;box-shadow:0 0 30px rgba(201,168,76,.3);display:inline-block}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(201,168,76,.5)}
+    .btn-outline{border:1px solid rgba(201,168,76,.5);color:var(--gold);padding:16px 36px;
+      border-radius:4px;font-family:'Cinzel',serif;font-size:13px;letter-spacing:.1em;
+      text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block}
+    .btn-outline:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
+    .hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+      display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp 1s ease 1.2s both}
+    .hero-scroll span{font-size:10px;letter-spacing:.25em;color:var(--silver);text-transform:uppercase}
+    .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--gold),transparent);
+      animation:scrollPulse 2s ease infinite}
+    @keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+    /* STATS */
+    .stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);
+      background:rgba(8,20,40,.8)}
+    .stat{padding:40px 20px;text-align:center;border-right:1px solid rgba(201,168,76,.1);transition:background .3s}
+    .stat:last-child{border-right:none}
+    .stat:hover{background:rgba(201,168,76,.05)}
+    .stat-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:var(--gold);line-height:1;display:block}
+    .stat-label{font-size:12px;letter-spacing:.15em;color:var(--silver);text-transform:uppercase;margin-top:8px;display:block}
+
+    /* SECTION */
+    section{position:relative;z-index:1}
+    .section-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.3em;color:var(--gold);
+      text-transform:uppercase;display:flex;align-items:center;gap:16px;margin-bottom:20px}
+    .section-label::after{content:'';flex:1;max-width:80px;height:1px;background:var(--gold)}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);font-weight:300;line-height:1.15}
+    .section-title em{color:var(--gold);font-style:italic}
+    .container{max-width:1200px;margin:0 auto;padding:0 40px}
+
+    /* SERVICES */
+    .services{padding:120px 0;background:var(--deep)}
+    .services-intro{text-align:center;max-width:700px;margin:0 auto 80px}
+    .services-intro .section-label{justify-content:center}
+    .services-intro .section-label::after{display:none}
+    .services-intro p{font-size:17px;color:var(--silver);line-height:1.8;margin-top:20px}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.1)}
+    .service-card{background:var(--deep);padding:48px 36px;transition:all .4s;cursor:default;position:relative;overflow:hidden}
+    .service-card::before{content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(201,168,76,.08) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+    .service-card:hover::before{opacity:1}
+    .service-card:hover{transform:translateY(-4px)}
+    .service-icon{font-size:48px;display:block;margin-bottom:24px}
+    .service-card h3{font-family:'Cinzel',serif;font-size:16px;font-weight:600;color:var(--gold);letter-spacing:.05em;margin-bottom:16px}
+    .service-card p{font-size:14px;color:var(--silver);line-height:1.8}
+    .service-price{margin-top:24px;font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold-light);font-weight:600}
+
+    /* HOROSCOPE */
+    .horoscope{padding:120px 0;background:var(--navy)}
+    .horoscope-intro{text-align:center;max-width:700px;margin:0 auto 60px}
+    .horoscope-intro .section-label{justify-content:center}
+    .horoscope-intro .section-label::after{display:none}
+    .horoscope-intro p{font-size:17px;color:var(--silver);line-height:1.8;margin-top:20px}
+    .zodiac-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:48px}
+    .zodiac-card{background:rgba(8,20,40,.8);border:1px solid rgba(201,168,76,.15);
+      border-radius:12px;padding:20px 12px;text-align:center;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+    .zodiac-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,var(--gold),var(--accent));transform:scaleX(0);transition:transform .3s}
+    .zodiac-card:hover,.zodiac-card.active{border-color:var(--gold);background:rgba(201,168,76,.08);transform:translateY(-3px)}
+    .zodiac-card:hover::after,.zodiac-card.active::after{transform:scaleX(1)}
+    .zodiac-symbol{font-size:32px;display:block;margin-bottom:8px}
+    .zodiac-english{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:2px}
+    .zodiac-hindi{font-size:14px;color:var(--silver);display:block}
+    .zodiac-dates{font-size:10px;color:rgba(168,184,204,.6);display:block;margin-top:4px}
+    .horoscope-panel{background:rgba(8,20,40,.9);border:1px solid rgba(201,168,76,.2);
+      border-radius:16px;padding:48px;display:none}
+    .horoscope-panel.active{display:block;animation:fadeUp .5s ease}
+    .panel-header{display:flex;align-items:center;gap:24px;margin-bottom:32px;
+      padding-bottom:24px;border-bottom:1px solid rgba(201,168,76,.15)}
+    .panel-symbol{font-size:64px}
+    .panel-title h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--gold)}
+    .panel-title p{font-size:14px;color:var(--silver);margin-top:4px}
+    .panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+    .panel-item h4{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+    .panel-item p{font-size:14px;color:var(--silver);line-height:1.7}
+    .panel-traits{display:flex;flex-wrap:wrap;gap:8px}
+    .trait-tag{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);
+      color:var(--gold-light);font-size:12px;padding:4px 14px;border-radius:50px}
+    .daily-reading{background:linear-gradient(135deg,rgba(123,79,158,.15),rgba(201,168,76,.1));
+      border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:28px;margin-top:28px}
+    .daily-reading h4{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.2em;color:var(--gold);margin-bottom:12px;text-transform:uppercase}
+    .daily-reading p{font-size:15px;color:var(--white);line-height:1.8;font-style:italic}
+
+    /* ABOUT */
+    .about{padding:120px 0;background:var(--midnight)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+    .about-image{position:relative}
+    .about-img-wrap{position:relative;border-radius:4px;overflow:hidden}
+    .about-img-wrap img{width:100%;height:600px;object-fit:cover;object-position:top;display:block}
+    .about-img-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:30%;
+      background:linear-gradient(to top,rgba(10,30,53,.6),transparent)}
+    .about-accent{position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;
+      background:linear-gradient(135deg,var(--gold),var(--accent));border-radius:50%;
+      display:flex;align-items:center;justify-content:center;font-size:42px;z-index:2;
+      box-shadow:0 0 40px rgba(201,168,76,.3)}
+    .about-content h2{margin-bottom:24px}
+    .about-content>p{font-size:16px;color:var(--silver);line-height:1.9;margin-bottom:24px}
+    .about-quals{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+    .qual-item{display:flex;align-items:flex-start;gap:16px;padding:16px 20px;
+      background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15);border-radius:8px}
+    .qual-icon{font-size:24px;flex-shrink:0}
+    .qual-text h4{font-family:'Cinzel',serif;font-size:13px;color:var(--gold);margin-bottom:4px}
+    .qual-text p{font-size:13px;color:var(--silver);line-height:1.6}
+
+    /* BOOKING CTA STRIP */
+    .booking-cta{padding:100px 0;background:var(--navy);text-align:center}
+    .booking-cta .section-label{justify-content:center}
+    .booking-cta .section-label::after{display:none}
+    .booking-cta h2{margin-bottom:20px}
+    .booking-cta>div>p{font-size:17px;color:var(--silver);max-width:600px;margin:0 auto 40px;line-height:1.8}
+    .booking-features-row{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:48px}
+    .bf-item{display:flex;align-items:center;gap:10px;color:var(--silver);font-size:14px}
+    .bf-item span{font-size:20px}
+
+    /* TESTIMONIALS */
+    .testimonials{padding:120px 0;background:var(--deep)}
+    .testimonials-intro{text-align:center;max-width:600px;margin:0 auto 70px}
+    .testimonials-intro .section-label{justify-content:center}
+    .testimonials-intro .section-label::after{display:none}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .testimonial-card{background:rgba(10,30,53,.7);border:1px solid rgba(201,168,76,.15);
+      border-radius:12px;padding:36px;transition:all .3s}
+    .testimonial-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-4px)}
+    .stars{color:var(--gold);font-size:16px;margin-bottom:16px}
+    .testimonial-text{font-size:15px;color:var(--silver);line-height:1.8;font-style:italic;margin-bottom:24px}
+    .testimonial-author{display:flex;align-items:center;gap:14px}
+    .author-avatar{width:44px;height:44px;border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--accent));
+      display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .author-name{font-family:'Cinzel',serif;font-size:13px;color:var(--gold)}
+    .author-loc{font-size:12px;color:var(--silver);margin-top:2px}
+
+    /* BLOG */
+    .blog-section{padding:120px 0;background:var(--midnight)}
+    .blog-intro{text-align:center;max-width:600px;margin:0 auto 70px}
+    .blog-intro .section-label{justify-content:center}
+    .blog-intro .section-label::after{display:none}
+    .blog-intro p{font-size:17px;color:var(--silver);line-height:1.8;margin-top:16px}
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .blog-card-home{background:rgba(8,20,40,.7);border:1px solid rgba(201,168,76,.1);
+      border-radius:12px;overflow:hidden;transition:all .3s;cursor:pointer;display:block}
+    .blog-card-home:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.35)}
+    .blog-img{height:200px;background-size:cover;background-position:center;position:relative}
+    .blog-cat{position:absolute;top:16px;left:16px;background:rgba(201,168,76,.9);
+      color:var(--navy);font-size:10px;font-family:'Cinzel',serif;letter-spacing:.1em;
+      padding:4px 12px;border-radius:4px;text-transform:uppercase}
+    .blog-body{padding:28px}
+    .blog-date{font-size:11px;color:var(--silver);letter-spacing:.1em;margin-bottom:10px}
+    .blog-title{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;
+      color:var(--white);line-height:1.35;margin-bottom:12px}
+    .blog-excerpt{font-size:13px;color:var(--silver);line-height:1.7}
+    .blog-link{display:inline-flex;align-items:center;gap:6px;color:var(--gold);font-size:12px;
+      font-family:'Cinzel',serif;letter-spacing:.1em;margin-top:16px;text-transform:uppercase}
+
+    /* BLOG MODAL */
+    .blog-modal-overlay{position:fixed;inset:0;background:rgba(5,13,26,.96);z-index:3000;
+      overflow-y:auto;padding:20px;display:none}
+    .blog-modal-overlay.open{display:block}
+    .blog-modal-box{max-width:760px;margin:40px auto;background:rgba(8,20,40,.99);
+      border:1px solid rgba(201,168,76,.3);border-radius:16px;padding:56px;position:relative;
+      animation:fadeUp .4s ease}
+    .blog-modal-close{position:absolute;top:18px;right:22px;background:none;border:none;
+      color:var(--silver);font-size:34px;cursor:pointer;line-height:1;transition:color .3s}
+    .blog-modal-close:hover{color:var(--gold)}
+    .blog-modal-content{font-family:'Cormorant Garamond',serif;font-size:18px;
+      color:var(--white);line-height:2.1}
+
+    /* FAQ */
+    .faq{padding:120px 0;background:var(--navy)}
+    .faq-inner{display:grid;grid-template-columns:1fr 2fr;gap:80px}
+    .faq-intro p{font-size:16px;color:var(--silver);line-height:1.8;margin-top:20px}
+    .faq-list{display:flex;flex-direction:column;gap:8px}
+    .faq-item{border:1px solid rgba(201,168,76,.15);border-radius:8px;overflow:hidden;background:rgba(8,20,40,.5)}
+    .faq-question{padding:22px 28px;font-family:'Cinzel',serif;font-size:13px;color:var(--white);
+      cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .3s;user-select:none}
+    .faq-question:hover{color:var(--gold)}
+    .faq-arrow{font-size:20px;transition:transform .3s;color:var(--gold)}
+    .faq-item.open .faq-arrow{transform:rotate(45deg)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+    .faq-item.open .faq-answer{max-height:300px}
+    .faq-answer-inner{padding:0 28px 22px;font-size:14px;color:var(--silver);line-height:1.8}
+
+    /* CONTACT STRIP */
+    .contact-strip{padding:80px 0;
+      background:linear-gradient(135deg,rgba(123,79,158,.2),rgba(201,168,76,.1));
+      border-top:1px solid rgba(201,168,76,.2);border-bottom:1px solid rgba(201,168,76,.2);
+      text-align:center;position:relative;z-index:1}
+    .contact-strip h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:300;margin-bottom:16px}
+    .contact-strip h2 em{color:var(--gold);font-style:italic}
+    .contact-strip>div>p{font-size:17px;color:var(--silver);margin-bottom:36px}
+    .contact-methods{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:32px}
+    .contact-method{display:flex;align-items:center;gap:12px;background:rgba(8,20,40,.6);
+      border:1px solid rgba(201,168,76,.2);padding:14px 24px;border-radius:8px;
+      text-decoration:none;color:var(--white);font-size:14px;transition:all .3s}
+    .contact-method:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+    .contact-method img{width:28px;height:28px;border-radius:4px;object-fit:cover}
+
+    /* MAP */
+    .map-section{padding:80px 0;background:var(--deep);position:relative;z-index:1;text-align:center}
+    .map-section p{font-size:14px;color:var(--silver);margin-bottom:24px}
+    .map-section iframe{width:100%;max-width:700px;height:400px;border:1px solid rgba(201,168,76,.3);border-radius:12px;display:block;margin:0 auto}
+
+    /* FOOTER */
+    footer{background:rgba(3,8,16,.98);border-top:1px solid rgba(201,168,76,.15);padding:60px 0 30px;position:relative;z-index:1}
+    .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:48px}
+    .footer-brand p{font-size:14px;color:var(--silver);line-height:1.8;margin-top:16px;max-width:320px}
+    .footer-col h4{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:20px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .footer-col a{font-size:14px;color:var(--silver);text-decoration:none;transition:color .3s}
+    .footer-col a:hover{color:var(--gold)}
+    .footer-bottom{border-top:1px solid rgba(201,168,76,.1);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+    .footer-bottom p{font-size:13px;color:var(--silver)}
+    .footer-social{display:flex;gap:12px}
+    .social-icon{width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,76,.3);
+      display:flex;align-items:center;justify-content:center;transition:all .3s;text-decoration:none;overflow:hidden}
+    .social-icon:hover{background:rgba(201,168,76,.15);border-color:var(--gold)}
+    .social-icon img{width:20px;height:20px;object-fit:cover}
+
+    /* ANIMATIONS */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .reveal{opacity:0;transform:translateY(40px);transition:all .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      nav{display:none}
+      nav.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;
+        background:rgba(5,13,26,.98);padding:24px 40px;gap:20px;
+        border-bottom:1px solid rgba(201,168,76,.2);z-index:999}
+      .menu-btn{display:block}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .services-grid{grid-template-columns:1fr 1fr}
+      .zodiac-grid{grid-template-columns:repeat(4,1fr)}
+      .about-grid{grid-template-columns:1fr;gap:48px}
+      .testimonials-grid,.blog-grid{grid-template-columns:1fr}
+      .panel-grid{grid-template-columns:1fr}
+      .faq-inner{grid-template-columns:1fr;gap:48px}
+      .footer-inner{grid-template-columns:1fr;gap:40px}
     }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    @media(max-width:600px){
+      .container{padding:0 20px}
+      .services-grid{grid-template-columns:1fr}
+      .zodiac-grid{grid-template-columns:repeat(3,1fr)}
+      .horoscope-panel{padding:24px}
+      header{padding:0 20px}
     }
-
-    header h1 {
-      margin: 0;
-      color: #ff4500;
-      font-size: 32px;
-      text-align: center;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #fff;
-      font-size: 26px;
-      position: absolute;
-      top: 25px;
-      right: 20px;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 10px 0 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      transition: all 0.3s ease;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ff4500;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 80px;
-        right: 0;
-        width: 100%;
-        display: none;
-        text-align: center;
-        gap: 20px;
-        padding: 20px 0;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-    }
-
-    .hero {
-      padding: 100px 20px;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.6);
-      margin-bottom: 40px;
-      animation: fadeIn 2s ease;
-    }
-
-    .hero h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background-color: #ff4500;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #ff6347;
-      transform: scale(1.05);
-    }
-
-    .features {
-      padding: 60px 20px;
-      background-color: rgba(0, 0, 0, 0.75);
-      text-align: center;
-    }
-
-    .feature {
-      margin-bottom: 50px;
-      animation: fadeInUp 1s ease;
-    }
-
-    .feature h3 {
-      font-size: 30px;
-      color: #ff4500;
-      margin-bottom: 15px;
-    }
-
-    .feature p {
-      font-size: 18px;
-      max-width: 800px;
-      margin: 0 auto 10px;
-      line-height: 1.6;
-    }
-
-    .me {
-      display: block;
-      margin: 20px auto 0;
-      border: 2px solid #ff4500;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-      max-width: 400px;
-      height: 500px;
-    }
-
-    .map-container {
-      text-align: center;
-      margin: 40px 0;
-    }
-
-    .map-container iframe {
-      width: 100%;
-      max-width: 600px;
-      height: 450px;
-      border: 2px solid #ff4500;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-
-    footer {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 20px;
-      text-align: center;
-      font-size: 16px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .featured-article {
-  margin: 60px auto;
-  max-width: 800px;
-  background: rgba(0, 0, 0, 0.8);
-  border-left: 5px solid #ff4500;
-  padding: 30px;
-  border-radius: 8px;
-  text-align: center;
-  animation: fadeInUp 1.2s ease;
-}
-
-.featured-article h3 {
-  color: #ff4500;
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-.featured-article p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.featured-article span {
-  display: block;
-  font-size: 14px;
-  color: #ccc;
-  margin-bottom: 15px;
-}
-
-.featured-article a {
-  display: inline-block;
-  padding: 12px 26px;
-  background: transparent;
-  color: #ff4500;
-  border: 2px solid #ff4500;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.featured-article a:hover {
-  background: #ff4500;
-  color: #fff;
-  transform: scale(1.05);
-}
-
   </style>
 </head>
 <body>
+<div class="stars-bg"></div>
 
-  <header>
-    <h1>Stellar Astrology & Vastu</h1>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <nav>
-      <ul id="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="blog.html">Blog & Articles</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-
-
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h2>Welcome to Stellar Astrology & Vastu</h2>
-      <p>Receive personalized horoscopes, birth chart analyses, and insightful astrological guidance tailored to your life path.</p>
-      <a href="contact.html" class="btn">Get Started</a>
-    </div>
-  </section>
-
-  <section class="features" id="services">
-    <div class="feature">
-      <h3>About Us</h3>
-      <p>We specialize in providing comprehensive birth chart interpretations to help you navigate life’s challenges and opportunities with clarity. Our core values are accuracy, integrity, and confidentiality.</p>
-      <p>Our services are led by Dr. Sunita Dhakal, an experienced astrologer with over five years of professional practice in astrology and Vastu.</p>
-      <img src="profile.jpeg" alt="Dr. Sunita Dhakal" class="me">
-    </div>
-
-      <section class="featured-article">
-  <h3>Featured Article</h3>
-  <p>
-    Mantras are powerful sound vibrations that influence the mind, body, and spiritual energy.
-    This article explores their deep meaning and real-life significance.
-  </p>
-  <span>Published on ReviewNepal.com</span>
-  <a href="https://reviewnepal.com/articles/what-is-mantra-what-are-the-significant-importance-of-mantras.html" 
-     target="_blank" rel="noopener noreferrer">
-    Read the Full Article →
+<!-- HEADER -->
+<header id="header">
+  <a href="index.html" class="logo">
+    <div class="logo-icon">✦</div>
+    <div><span class="logo-text">Stellar Astrology</span><span class="logo-sub">& Vastu Shastra</span></div>
   </a>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <nav id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="#services">Services</a>
+    <a href="#horoscope">Horoscope</a>
+    <a href="#blog-section">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-cta">Book Now</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span>✦</span> Vedic Astrology & Vastu Shastra <span>✦</span></div>
+    <h1>Discover Your<em>Cosmic Destiny</em></h1>
+    <p class="hero-desc">Unlock the ancient wisdom of the stars. Receive personalized Kundali readings, Vastu guidance, and life path clarity from Dr. Sunita Dhakal — Nepal's trusted astrologer.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-primary">✦ Book a Consultation</a>
+      <a href="#horoscope" class="btn-outline">View Your Rashi</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Explore</span><div class="scroll-line"></div></div>
 </section>
 
-    <div class="feature">
-      <h3>Online Consultations</h3>
-      <p>Access our services conveniently through Zoom or WhatsApp. No matter where you are, professional guidance is just a call away.</p>
-    </div>
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-num">7+</span><span class="stat-label">Years Experience</span></div>
+  <div class="stat"><span class="stat-num">2000+</span><span class="stat-label">Happy Clients</span></div>
+  <div class="stat"><span class="stat-num">12</span><span class="stat-label">Zodiac Expertise</span></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Confidential</span></div>
+</div>
 
-    <div class="feature">
-      <h3>In-Person Appointments</h3>
-      <p>Visit us for personalized, face-to-face sessions covering career guidance, relationship advice, and life path consultations.</p>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-intro reveal">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Celestial <em>Services</em></h2>
+      <p>Ancient Vedic sciences applied to modern life challenges — from birth chart analysis to harmonizing your living space with cosmic energies.</p>
     </div>
-  </section>
-
-  <div class="map-container">
-    <p><strong>Visit Us:</strong><br>We are located near Manamaiju Bridge. Contact us for detailed directions and appointment scheduling.</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14124.757145930638!2d85.3142133!3d27.7423071!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19283b9e5f5d%3A0x82492dd87c3ffcc6!2sManamaiju%20Bridge%2C%2044600!5e0!3m2!1sen!2snp!4v1686553485253!5m2!1sen!2snp" loading="lazy"></iframe>
+    <div class="services-grid reveal">
+      <div class="service-card"><span class="service-icon">🔮</span><h3>Kundali / Birth Chart</h3><p>Complete analysis of your Janma Kundali revealing planetary positions, dashas, and life path predictions based on your exact birth details.</p><div class="service-price"></div></div>
+      <div class="service-card"><span class="service-icon">🏛️</span><h3>Vastu Shastra</h3><p>Transform your home or office into a harmonious space aligned with cosmic energies for health, wealth, and prosperity.</p><div class="service-price"></div></div>
+      <div class="service-card"><span class="service-icon">💑</span><h3>Kundali Milan</h3><p>In-depth compatibility analysis for marriage — matching 36 Gunas, Mangal Dosha check, and relationship compatibility report.</p><div class="service-price"></div></div>
+      <div class="service-card"><span class="service-icon">💼</span><h3>Career Guidance</h3><p>Planetary insights into career paths, auspicious timings for business launches, job changes, and professional growth strategies.</p><div class="service-price"></div></div>
+      <div class="service-card"><span class="service-icon">🕉️</span><h3>Remedies & Mantras</h3><p>Personalized remedies including gemstone recommendations, mantras, and rituals to pacify malefic planets and strengthen benefics.</p><div class="service-price"></div></div>
+      <div class="service-card"><span class="service-icon">📅</span><h3>Muhurta</h3><p>Selection of the most auspicious time for weddings, business starts, travel, and other important life events using Panchang.</p><div class="service-price"></div></div>
+    </div>
   </div>
+</section>
 
-  <footer>
-    <p>&copy; 2023 Stellar Astrology & Vastu. All rights reserved.</p>
-  </footer>
+<!-- HOROSCOPE -->
+<section class="horoscope" id="horoscope">
+  <div class="container">
+    <div class="horoscope-intro reveal">
+      <div class="section-label">Daily Rashifal</div>
+      <h2 class="section-title">Your <em>Rashi</em> Today</h2>
+      <p>Select your zodiac sign to reveal today's cosmic guidance — energies, opportunities, and wisdom from the stars.</p>
+    </div>
+    <div class="zodiac-grid reveal" id="zodiacGrid"></div>
+    <div id="horoscopePanel"></div>
+  </div>
+</section>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("nav-list");
-      menu.classList.toggle("active");
-    }
-  </script>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <div class="about-img-wrap"><img src="profile.jpeg" alt="Dr. Sunita Dhakal" /></div>
+        <div class="about-accent">🌟</div>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-label">About the Astrologer</div>
+        <h2 class="section-title">Dr. Sunita <em>Dhakal</em></h2>
+        <p>With over seven years of dedicated practice in Vedic astrology and Vastu Shastra, Dr. Sunita Dhakal brings clarity, accuracy, and compassion to every consultation. Her approach bridges ancient wisdom with modern life realities.</p>
+        <p>Based in Kathmandu, she has guided thousands of clients across Nepal and internationally through life's most pivotal moments — from career crossroads to relationship decisions and spiritual growth.</p>
+        <div class="about-quals">
+          <div class="qual-item"><span class="qual-icon">📚</span><div class="qual-text"><h4>Expert in Vedic Astrology</h4><p>Deep mastery of Parashari, Jaimini, and Nadi systems with a focus on accurate Kundali predictions.</p></div></div>
+          <div class="qual-item"><span class="qual-icon">🏠</span><div class="qual-text"><h4>Vastu Shastra Specialist</h4><p>Certified Vastu consultant for residential and commercial spaces, harmonizing energy for prosperity.</p></div></div>
+          <div class="qual-item"><span class="qual-icon">✍️</span><div class="qual-text"><h4>Published Author & Speaker</h4><p>Articles published on ReviewNepal.com, recognized for Mantra significance and Vedic research.</p></div></div>
+        </div>
+        <a href="contact.html" class="btn-primary">Book a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="booking-cta" id="booking">
+  <div class="container">
+    <div class="section-label" style="justify-content:center;">Book a Session</div>
+    <h2 class="section-title">Begin Your <em>Journey</em></h2>
+    <p>Take the first step toward cosmic clarity. Fill in your details and Dr. Sunita Dhakal will confirm your appointment within 2 hours.</p>
+    <a href="contact.html" class="btn-primary">✦ Request a Consultation</a>
+    <div class="booking-features-row">
+      <div class="bf-item"><span>📹</span> Online via Zoom or WhatsApp</div>
+      <div class="bf-item"><span>🏛️</span> In-person in Kathmandu</div>
+      <div class="bf-item"><span>🔒</span> 100% Confidential</div>
+      <div class="bf-item"><span>💳</span> eSewa · Khalti · Bank</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-intro reveal">
+      <div class="section-label">Client Stories</div>
+      <h2 class="section-title">Voices of <em>Transformation</em></h2>
+    </div>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Dr. Sunita's Kundali reading was incredibly accurate. She identified challenges I hadn't even mentioned and provided remedies that genuinely helped. I feel more grounded now."</p><div class="testimonial-author"><div class="author-avatar">🙏</div><div><div class="author-name">Anita Sharma</div><div class="author-loc">Kathmandu, Nepal</div></div></div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"The Vastu consultation transformed my home. Within weeks the energy felt lighter and my business started improving. Dr. Sunita explains everything clearly without judgment."</p><div class="testimonial-author"><div class="author-avatar">✨</div><div><div class="author-name">Rajesh Thapa</div><div class="author-loc">Pokhara, Nepal</div></div></div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"I consulted for Kundali Milan before my marriage. The report was thorough, honest, and gave us confidence. The online Zoom session was smooth and professional."</p><div class="testimonial-author"><div class="author-avatar">💫</div><div><div class="author-name">Priya Adhikari</div><div class="author-loc">Bharatpur, Nepal</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section" id="blog-section">
+  <div class="container">
+    <div class="blog-intro reveal">
+      <div class="section-label">Knowledge & Wisdom</div>
+      <h2 class="section-title">Cosmic <em>Insights</em></h2>
+      <p>Spiritual reflections, meditative journeys, and Vedic wisdom — written by Dr. Sunita Dhakal.</p>
+    </div>
+    <div class="blog-grid reveal">
+      <div class="blog-card-home" onclick="openBlog(0)">
+        <div class="blog-img" style="background-image:url('blog-background.jpeg')"><span class="blog-cat">ध्यान · Meditation</span></div>
+        <div class="blog-body"><div class="blog-date">July 22, 2025</div><div class="blog-title">अनन्त शून्यता भित्र अज्ञात चिजको अन्तहिन खोजी</div><p class="blog-excerpt">ध्यानको लयमा एक मौन यात्रा — अज्ञातको खोजमा, अनन्त शून्यताभित्र एक आत्माको कथा।</p><div class="blog-link">Read Article →</div></div>
+      </div>
+      <div class="blog-card-home" onclick="openBlog(1)">
+        <div class="blog-img" style="background-image:url('a.jpg')"><span class="blog-cat">आत्मा · Soul</span></div>
+        <div class="blog-body"><div class="blog-date">June 18, 2025</div><div class="blog-title">म आत्मा हुँ।</div><p class="blog-excerpt">न त म पुरुष, न नारी। न धनी, न गरिब। म त केवल चेतना हुँ — अदृश्य, तर अनुभूति हुने।</p><div class="blog-link">Read Article →</div></div>
+      </div>
+      <div class="blog-card-home" onclick="openBlog(2)">
+        <div class="blog-img" style="background-image:url('b.webp')"><span class="blog-cat">समर्पण · Surrender</span></div>
+        <div class="blog-body"><div class="blog-date">June 16, 2025</div><div class="blog-title">समर्पणको क्षण</div><p class="blog-excerpt">जीवनले थकित बनाइसकेको थियो — तर त्यस दिन म केवल समर्पण गर्छु।</p><div class="blog-link">Read Article →</div></div>
+      </div>
+    </div>
+    <div class="blog-grid reveal" style="margin-top:28px">
+      <div class="blog-card-home" onclick="openBlog(3)">
+        <div class="blog-img" style="background-image:url('c.jpg')"><span class="blog-cat">चेतना · Consciousness</span></div>
+        <div class="blog-body"><div class="blog-date">June 9, 2025</div><div class="blog-title">शरीरभन्दा परको यात्रा</div><p class="blog-excerpt">संसारजस्तै थाकेको थिएँ — तर भित्र एक आवाज गुञ्जिएको थियो: आज तिमी केही छोड्न तयार छौं?</p><div class="blog-link">Read Article →</div></div>
+      </div>
+      <div class="blog-card-home" onclick="openBlog(4)">
+        <div class="blog-img" style="background-image:url('blog-background.jpeg')"><span class="blog-cat">प्रेम · Love</span></div>
+        <div class="blog-body"><div class="blog-date">June 2, 2025</div><div class="blog-title">शून्यमा अनन्त भेटियो</div><p class="blog-excerpt">रातको त्यो एकान्तमा, न त कुनै आवाज थियो — त्यही शून्यमा अनन्त भेटियो।</p><div class="blog-link">Read Article →</div></div>
+      </div>
+      <div class="blog-card-home" onclick="openBlog(5)">
+        <div class="blog-img" style="background-image:url('a.jpg')"><span class="blog-cat">ध्यान · Meditation</span></div>
+        <div class="blog-body"><div class="blog-date">May 28, 2025</div><div class="blog-title">म श्वासमा सागर भेटेँ</div><p class="blog-excerpt">सासले मलाई कहाँ पुर्‍याउनेछ — म कल्पना गर्नै सक्दिनथेँ। श्वासमा सागर भेटियो।</p><div class="blog-link">Read Article →</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px" class="reveal">
+      <a href="blog.html" class="btn-outline">View All Articles on Cosmic Insights →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG MODAL -->
+<div class="blog-modal-overlay" id="blogOverlay">
+  <div class="blog-modal-box">
+    <button class="blog-modal-close" onclick="closeBlog()">×</button>
+    <div class="blog-modal-content" id="blogContent"></div>
+    <div style="margin-top:36px;text-align:center">
+      <a href="blog.html" class="btn-outline" style="margin-right:12px">All Articles →</a>
+      <a href="contact.html" class="btn-primary">Book a Consultation</a>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-intro reveal">
+        <div class="section-label">Questions</div>
+        <h2 class="section-title">Common <em>Questions</em></h2>
+        <p>Answers to what our clients most often ask before their first consultation.</p>
+        <br/><a href="contact.html" class="btn-outline" style="margin-top:16px">Ask Something →</a>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What information do I need for a Kundali reading? <span class="faq-arrow">+</span></div><div class="faq-answer"><div class="faq-answer-inner">You need your exact birth date, birth time (as accurate as possible), and birth place. The more precise the time, the more accurate the reading. If you don't have the exact time, Dr. Sunita can use birth time rectification methods.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How long does a consultation session last? <span class="faq-arrow">+</span></div><div class="faq-answer"><div class="faq-answer-inner">Standard consultations are 45–60 minutes. Comprehensive Kundali readings with detailed predictions may extend to 90 minutes. You can ask questions freely throughout the session.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the consultation truly confidential? <span class="faq-arrow">+</span></div><div class="faq-answer"><div class="faq-answer-inner">Absolutely. All personal information shared during consultations is strictly confidential. We never share, sell, or disclose your details to any third party under any circumstances.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I consult from outside Nepal? <span class="faq-arrow">+</span></div><div class="faq-answer"><div class="faq-answer-inner">Yes! Dr. Sunita serves clients globally via Zoom and WhatsApp video calls. Sessions are conducted in Nepali, Hindi, or English based on your preference.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What payment methods are accepted? <span class="faq-arrow">+</span></div><div class="faq-answer"><div class="faq-answer-inner">We accept eSewa, Khalti, direct bank transfer, and international payments via bank transfer. Payment details are shared after confirming your appointment.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the difference between Rashi and Sun sign? <span class="faq-arrow">+</span></div><div class="faq-answer"><div class="faq-answer-inner">Rashi (Moon sign) is used in Vedic astrology; Sun sign is used in Western astrology. In Vedic practice, the Moon sign is given far greater importance as it reflects your deeper emotional nature and life patterns.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="container">
+    <h2>Ready to Discover Your <em>Cosmic Path?</em></h2>
+    <p>Connect with Dr. Sunita Dhakal — available online and in person across Nepal and worldwide.</p>
+    <a href="contact.html" class="btn-primary">Book Your Session Now</a>
+    <div class="contact-methods">
+      <a href="mailto:vinsihkarathan@gmail.com" class="contact-method"><img src="download.png" alt="Gmail" /> Email Us</a>
+      <a href="https://wa.me/9816414750" class="contact-method"><img src="whatsapp.png" alt="WhatsApp" /> WhatsApp</a>
+      <a href="https://www.instagram.com/dr.sunita_dhakal/" target="_blank" class="contact-method"><img src="insta.jpeg" alt="Instagram" /> Instagram</a>
+      <a href="https://www.facebook.com/sunita.dhakal.399" target="_blank" class="contact-method"><img src="facebook.webp" alt="Facebook" /> Facebook</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-label" style="justify-content:center;margin-bottom:12px"><span>✦</span> Find Us</div>
+    <p>Near Manamaiju Bridge, Kathmandu, Nepal — or reach us online from anywhere in the world.</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14124.757145930638!2d85.3142133!3d27.7423071!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19283b9e5f5d%3A0x82492dd87c3ffcc6!2sManamaiju%20Bridge%2C%2044600!5e0!3m2!1sen!2snp!4v1686553485253!5m2!1sen!2snp" loading="lazy" title="Our Location"></iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-icon">✦</div><div><span class="logo-text">Stellar Astrology</span><span class="logo-sub">& Vastu Shastra</span></div></div>
+        <p>Ancient Vedic wisdom for modern life — personalized guidance for career, relationships, health, and spiritual growth. Based in Kathmandu, serving clients worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="#horoscope">Daily Horoscope</a></li>
+          <li><a href="blog.html">Blog & Articles</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="contact.html">Kundali Reading</a></li>
+          <li><a href="contact.html">Vastu Shastra</a></li>
+          <li><a href="contact.html">Kundali Milan</a></li>
+          <li><a href="contact.html">Career Guidance</a></li>
+          <li><a href="contact.html">Muhurta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stellar Astrology & Vastu. All rights reserved. | Dr. Sunita Dhakal, Kathmandu</p>
+      <div class="footer-social">
+        <a class="social-icon" href="https://www.facebook.com/sunita.dhakal.399" target="_blank"><img src="facebook.webp" alt="Facebook"/></a>
+        <a class="social-icon" href="https://www.instagram.com/dr.sunita_dhakal/" target="_blank"><img src="insta.jpeg" alt="Instagram"/></a>
+        <a class="social-icon" href="https://wa.me/9816414750"><img src="whatsapp.png" alt="WhatsApp"/></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── ZODIAC DATA ── */
+const zodiacData=[
+  {en:'Aries',hi:'मेष',rashi:'Mesh Rashi',symbol:'♈',dates:'Mar 21 – Apr 19',planet:'Mars (मंगल)',element:'Fire (अग्नि)',traits:['साहसी','ऊर्जावान','नेतृत्व','उत्साही','स्वतंत्र'],desc:'Mesh Rashi individuals are bold, energetic, and natural leaders. Ruled by Mars, they possess fierce courage, take initiative, and thrive on challenges.',today:'आज आपके लिए शुभ समय है। नए कार्यों की शुरुआत के लिए यह दिन उत्तम है। मंगल ग्रह आपको शक्ति और साहस प्रदान कर रहा है। परिवार के साथ समय बिताएं और वित्तीय निर्णय सोच-समझकर लें।',lucky:'Red · Tuesday · Number 9',gemstone:'Red Coral (मूंगा)'},
+  {en:'Taurus',hi:'वृषभ',rashi:'Vrishabh Rashi',symbol:'♉',dates:'Apr 20 – May 20',planet:'Venus (शुक्र)',element:'Earth (पृथ्वी)',traits:['स्थिर','व्यावहारिक','परिश्रमी','विश्वसनीय','धैर्यवान'],desc:'Vrishabh Rashi natives are practical, stable, and deeply reliable. Venus blesses them with love for beauty, comfort, and material well-being.',today:'शुक्र ग्रह की कृपा से आज प्रेम और समृद्धि का संयोग है। व्यापार में अच्छे परिणाम मिल सकते हैं। रिश्तों को मजबूत करें। स्वास्थ्य का ध्यान रखें।',lucky:'Green · Friday · Number 6',gemstone:'Diamond / White Sapphire (हीरा)'},
+  {en:'Gemini',hi:'मिथुन',rashi:'Mithun Rashi',symbol:'♊',dates:'May 21 – Jun 20',planet:'Mercury (बुध)',element:'Air (वायु)',traits:['जिज्ञासु','बुद्धिमान','संचारी','अनुकूलनीय','चतुर'],desc:'Mithun Rashi people are quick-witted and intellectually curious. Mercury sharpens their communication skills, making them excel in creative and expressive fields.',today:'बुध ग्रह आपकी वाकपटुता को बढ़ा रहा है। संचार और नेटवर्किंग के अवसर आएंगे। नई जानकारी सीखने का यह उत्तम समय है। यात्रा की संभावना है।',lucky:'Yellow · Wednesday · Number 5',gemstone:'Emerald (पन्ना)'},
+  {en:'Cancer',hi:'कर्क',rashi:'Kark Rashi',symbol:'♋',dates:'Jun 21 – Jul 22',planet:'Moon (चंद्र)',element:'Water (जल)',traits:['भावनात्मक','पोषक','सहानुभूतिपूर्ण','सहज','परिवार-प्रेमी'],desc:'Kark Rashi individuals are deeply intuitive and nurturing. Governed by the Moon, they are emotionally rich and draw strength from family and home.',today:'चंद्रमा की कृपा से आज भावनाएं प्रबल रहेंगी। परिवार के साथ बिताया समय सुखद रहेगा। मन को शांत रखें। आर्थिक स्थिति मजबूत होगी।',lucky:'White/Silver · Monday · Number 2',gemstone:'Pearl (मोती)'},
+  {en:'Leo',hi:'सिंह',rashi:'Singh Rashi',symbol:'♌',dates:'Jul 23 – Aug 22',planet:'Sun (सूर्य)',element:'Fire (अग्नि)',traits:['आत्मविश्वासी','उदार','रचनात्मक','नेतृत्व','जोशीला'],desc:'Singh Rashi natives radiate confidence and leadership. Ruled by the Sun, they are generous, creative, and natural performers who inspire others.',today:'सूर्य ग्रह आपको ऊर्जा और आत्मविश्वास दे रहा है। आज प्रशंसा मिलने की संभावना है। रचनात्मक कार्यों में सफलता मिलेगी। प्रेम जीवन में खुशी रहेगी।',lucky:'Gold/Orange · Sunday · Number 1',gemstone:'Ruby (माणिक)'},
+  {en:'Virgo',hi:'कन्या',rashi:'Kanya Rashi',symbol:'♍',dates:'Aug 23 – Sep 22',planet:'Mercury (बुध)',element:'Earth (पृथ्वी)',traits:['विश्लेषणात्मक','व्यवस्थित','परिश्रमी','विनम्र','व्यावहारिक'],desc:'Kanya Rashi individuals are meticulous, analytical, and devoted to service. They have an exceptional eye for detail and outstanding problem-solving ability.',today:'आज विश्लेषणात्मक सोच काम आएगी। स्वास्थ्य संबंधी मामलों पर ध्यान दें। कार्यक्षेत्र में सुधार होगा। योग और ध्यान से मन शांत रहेगा।',lucky:'Green · Wednesday · Number 5',gemstone:'Emerald (पन्ना)'},
+  {en:'Libra',hi:'तुला',rashi:'Tula Rashi',symbol:'♎',dates:'Sep 23 – Oct 22',planet:'Venus (शुक्र)',element:'Air (वायु)',traits:['संतुलित','कूटनीतिज्ञ','न्यायप्रिय','सामाजिक','सौंदर्यबोध'],desc:'Tula Rashi people seek harmony and fairness. Venus blesses them with beauty, social grace, and an innate sense of justice — natural diplomats and peacemakers.',today:'संतुलन बनाए रखें। साझेदारी और सहयोग के अवसर आएंगे। किसी विवाद में मध्यस्थता का मौका मिल सकता है। प्रेम संबंध मधुर रहेंगे।',lucky:'White/Pink · Friday · Number 6',gemstone:'Diamond / Opal (हीरा)'},
+  {en:'Scorpio',hi:'वृश्चिक',rashi:'Vrischik Rashi',symbol:'♏',dates:'Oct 23 – Nov 21',planet:'Mars (मंगल)',element:'Water (जल)',traits:['गहन','रहस्यमय','परिवर्तनकारी','दृढ़','अनुसंधानी'],desc:'Vrischik Rashi individuals are intense and deeply transformative. They have powerful intuition, unwavering determination, and ability to regenerate from life\'s greatest challenges.',today:'गहन विचारों का दिन है। छुपी जानकारियां सामने आ सकती हैं। शोध कार्यों में सफलता मिलेगी। भावनाओं को नियंत्रित रखें।',lucky:'Dark Red · Tuesday · Number 9',gemstone:'Red Coral (मूंगा)'},
+  {en:'Sagittarius',hi:'धनु',rashi:'Dhanu Rashi',symbol:'♐',dates:'Nov 22 – Dec 21',planet:'Jupiter (बृहस्पति)',element:'Fire (अग्नि)',traits:['आशावादी','दार्शनिक','साहसी','स्वतंत्र','उत्साही'],desc:'Dhanu Rashi people are optimistic and philosophical. Jupiter blesses them with wisdom and luck, driving them toward truth through travel, learning, and spiritual exploration.',today:'बृहस्पति की कृपा से भाग्य साथ है। उच्च शिक्षा और आध्यात्मिक ज्ञान में वृद्धि होगी। यात्रा शुभ रहेगी। धार्मिक कार्यों में मन लगेगा।',lucky:'Yellow/Purple · Thursday · Number 3',gemstone:'Yellow Sapphire (पुखराज)'},
+  {en:'Capricorn',hi:'मकर',rashi:'Makar Rashi',symbol:'♑',dates:'Dec 22 – Jan 19',planet:'Saturn (शनि)',element:'Earth (पृथ्वी)',traits:['अनुशासित','महत्वाकांक्षी','जिम्मेदार','धैर्यवान','व्यावहारिक'],desc:'Makar Rashi individuals are disciplined and deeply responsible. Saturn rewards their patience and persistence with lasting success, authority, and hard-earned achievements.',today:'शनि ग्रह अनुशासन और मेहनत का फल दे रहा है। करियर में प्रगति संभव है। दीर्घकालिक योजनाओं पर ध्यान दें। संपत्ति के मामले शुभ हैं।',lucky:'Black/Blue · Saturday · Number 8',gemstone:'Blue Sapphire (नीलम)'},
+  {en:'Aquarius',hi:'कुम्भ',rashi:'Kumbh Rashi',symbol:'♒',dates:'Jan 20 – Feb 18',planet:'Saturn (शनि)',element:'Air (वायु)',traits:['अभिनव','मानवतावादी','स्वतंत्र','बौद्धिक','प्रगतिशील'],desc:'Kumbh Rashi people are innovative and humanitarian. They envision a better future, work toward collective good, and pioneer ideas decades ahead of their time.',today:'नवाचार और तकनीक में अवसर आएंगे। सामाजिक कार्यों में सफलता मिलेगी। मित्रों से सहायता प्राप्त होगी। भविष्य की योजनाएं बनाएं।',lucky:'Electric Blue · Saturday · Number 4',gemstone:'Blue Sapphire / Amethyst (नीलम)'},
+  {en:'Pisces',hi:'मीन',rashi:'Meen Rashi',symbol:'♓',dates:'Feb 19 – Mar 20',planet:'Jupiter (बृहस्पति)',element:'Water (जल)',traits:['करुणामय','कल्पनाशील','आध्यात्मिक','संवेदनशील','सहज'],desc:'Meen Rashi individuals are deeply compassionate and spiritually attuned. Jupiter blesses them with empathy, creativity, and a profound connection to the divine.',today:'आध्यात्मिक ऊर्जा प्रबल है। ध्यान और प्रार्थना से मन शांत रहेगा। रचनात्मक कार्यों में सफलता मिलेगी। सपने महत्वपूर्ण संदेश दे सकते हैं।',lucky:'Sea Green · Thursday · Number 3',gemstone:'Yellow Sapphire / Pearl (पुखराज/मोती)'}
+];
+
+/* ── BLOG DATA ── */
+const blogData=[
+  {title:'अनन्त शून्यता भित्र अज्ञात चिजको अन्तहिन खोजी',date:'July 22, 2025',cat:'ध्यान · Meditation',text:'ध्यानको लयमा एक मौन यात्रा ।<br><br>श्वास लिउँ...<br>गहिरो...<br>निश्वास छोडौँ...<br>धीरे...<br>मौनता छ, वरिपरि...<br>र भित्र... अझ गहिरो मौनता।<br><br>त्यही मौनताको गर्भबाट सुरु हुन्छ कथा — एक आत्माको यात्रा... अज्ञातको खोजमा... अनन्त शून्यताभित्र...<br><br>आँखा बन्द गर। के देख्छौ? अन्धकार? वा केवल खालीपन?<br><br>त्यस खालीपनमा, सुन… सुन त्यो कम्पन… त्यो तिम्रो नै श्वासको धुन हो…<br><br>जसरी निर्वाण नामक युवक एकदिन हिँडे शून्यताको बाटोमा, त्यो नै यात्रा हो तिम्रो पनि।<br><br>संसारको हल्ला उसले छोड्यो। नाम, पहिचान, सपना — सबै ओछ्यानमा राख्यो। त्यसपछि ऊ बस्यो — आँखा बन्द गरेर — स्वास र निश्वासको मध्यविन्दुमा।<br><br>पहिलो दिन आवाजहरू आए — "तँ कहाँ जाँदैछस्?" "यो त केवल मौन हो!" "अन्धकारमा के छ र?"<br><br>तर उसले सुनेन — सुनिरहेको थियो त्यो भित्रको मौनतालाई — जहाँ न त शब्द थिए, न त विचार — केवल आभास थियो।<br><br>दोस्रो चरण: आत्म-भयको पर्दा च्यातिदै...<br><br>जसरी तिमी ध्यानमा बस्छौ, अचानक डर आउँछ — "के म हराउँदैछु?" "यो म हुँ कि म छैन?"<br><br>यही डर आयो निर्वाणलाई पनि। ऊ हाँस्यो — किनकि उसले बुझ्यो, डर पनि केवल विचार हो, शून्यताको द्वार अगाडि आएको छायाँ मात्र।<br><br>त्यो क्षणमा उसले देख्यो — भित्र कुनै "स्व" छैन, केवल शुद्ध उपस्थिति छ — नामविहीन, रूपविहीन, असीम।<br><br>तेस्रो चरण: समर्पणको विश्राम<br><br>अब केही बाँकी थिएन। जसरी ध्यानको गहिराइमा पुग्दा श्वास हराउँछ, सोंच हराउँछ, शरीरको अनुभूति हराउँछ — त्यसरी नै ऊ हरायो — तर हराएको त्यो क्षणमा… ऊ सम्पूर्ण बन्यो।'},
+  {title:'म आत्मा हुँ।',date:'June 18, 2025',cat:'आत्मा · Soul',text:'न त म पुरुष, न नारी। न धनी, न गरिब।<br>म त केवल चेतना हुँ — अदृश्य, तर अनुभूति हुने।<br><br>मैले धेरै जन्महरू बाँचें। कहिले खुशी थिएँ, कहिले पीडामा। तर प्रत्येक जन्ममा एउटै प्रश्न साथमा बोकेँ — "म को हुँ?"<br><br>संसारले मलाई नाम दियो, पहिचान दियो, धर्म दियो। तर जब म एक्लो अन्धकारमा रुन्थें, कोही मेरो आँसु देख्दैनथ्यो — किनकि त्यो आँसु आत्माको थियो, आँखाको होइन।<br><br>म खोजिरहेँ, प्रेम खोजेँ, आश्रय खोजेँ। कहिले आत्मियता, कहिले सम्बन्धमा। तर जतिसुकै माया पाएँ, मनको भोक कहिल्यै मेटिएन। किनकि त्यो भोक थियो परमात्माको।<br><br>दुःख आयो। धेरै आयो। कसैले गाली गर्‍यो, कसैले धोका दियो। केही प्रियहरू गएका, केही सपनाहरू चुँडिएका। म रोएँ — शरीर होइन, चेतनाले। तर त्यो आँसु… त्यो नै थियो मेरो शुद्धीकरण।<br><br>एक रात, मौनमा, जब सारा संसार निदाएको थियो, म आफैंमा फर्किएँ। मन बन्द भयो, भावना मौन भयो — र त्यो मौनताको गहिराइमा म पुगेँ — जहाँ म थिएँ, र केवल परमात्मा थिए।<br><br>त्यो मिलन शब्दमा अटाउँदैन। त्यो स्पर्श थिएन, त्यो प्रकाश थिएन — त्यो म नै थिएँ, र म भित्र परमात्मा।<br><br>त्यसपछिका दुःख मलाई तोड्न सकेनन्। सुख मलाई उड्न दिएनन्। किनकि मैले बुझिसकेकि थिएँ — साँचो शान्ति त भित्र हो।<br><br>म अब जीवनसँग लड्दिन, म मृत्युसँग डराउँदिन। म केवल बग्दछु — साक्षी भएर, प्रेम भएर।<br><br>किनभने अब म बुझिसकेकि छु — "म आत्मा हुँ। र मेरो घर — परमात्माको काख हो।"'},
+  {title:'समर्पणको क्षण',date:'June 16, 2025',cat:'समर्पण · Surrender',text:'ध्यानको साँझ<br><br>जीवनले थकित बनाइसकेको थियो — शरीरले बोकेको नबोझिने समय, मनमा गाँसिएका सयौँ प्रश्नहरू। म मौन बसें तर त्यो मौनता पीडायुक्त थियो।<br><br>त्यही मौनतामा, मैले एक थकित सास लिएँ — सास… जुन केवल श्वास होइन, एक हार स्वीकार्ने संकेत थियो।<br><br>म परमात्मासँग रिसाएकी थिएँ — "किन यस्तो?" "कति धेरै परीक्षा?" "कहिले थाक्नुहुन्छ तपाईं म रुँदाको आवाज सुन्दै?"<br><br>तर त्यस दिन, म रुन्नँ, गुनासो गर्दिनँ, माग्दिनँ। म केवल… समर्पण गर्छु।<br><br>शब्द बिना, आक्रोश बिना, एउटा निसब्द समर्पण — जसमा आँखा बन्द हुँदैन तर "म" नामको झूट बन्द हुन्छ।<br><br>म आफूलाई उहाँका चरणमा राख्छु — न राम्रो, न नराम्रो बनाइदिएर। म केवल छु — जस्तो छु, जस्तो भइसकेकी छु, जस्तो बन्न नसकेको छु।<br><br>त्यो क्षण… जसले हृदयको सबै बाँचिरहेका घाउ चुम्यो। पीडा पनि पूजा बन्यो। अश्रुहरू पनि जल चढाएजस्तै शुद्ध थिए।<br><br>मैले देखेँ उहाँ रोइरहनुभएको थियो। हो, परमात्मा पनि रुनुहुन्छ… जब सन्तान घुमफिर गरेर थाकेर फर्कन्छ, अनि आँट गर्दछ — "अब मलाई तपाईंमै हरिन दिनुहोस्।"<br><br>समर्पण भनेको हार होइन — समर्पण भनेको अन्तिम भेट हो।'},
+  {title:'शरीरभन्दा परको यात्रा',date:'June 9, 2025',cat:'चेतना · Consciousness',text:'संसारजस्तै थाकेको थिएँ — शरीर थकित, मन मौन।<br>तर भित्र कुनै एक आवाज गुञ्जिएको थियो — "आज तिमी केही छोड्न तयार छौं?"<br><br>म आँखा बन्द गर्छु। शरीर थियो तर त्यहाँ थिइनँ। त्यो शरीरलाई हेर्ने "कोही अर्कै" जस्तो अनुभव भयो।<br><br>शरीरको सीमाना भंग हुन थाले। तर चेतना जागिरहेको छ — यो त "जाग्रत मौनता" हो।<br><br>अचानक, म कुनै प्रकाशमय क्षेत्रतिर तानिँदै थिएँ — कुनै अदृश्य ऊर्जा — नरम, करुणामय, निष्कलंक।<br><br>त्यही अँध्यारोमा, मैले आत्मा देखेँ — आफ्नो आत्मा। पहिलोपटक जीवनमा, म आफैँलाई देखेँ — शरीर बिना, इतिहास बिना, पहिचान बिना।<br><br>न म छोरी थिएँ, न पत्नी, न आमा, न नाम। म केवल प्रकाशको एउटा बूँद थिएँ — अद्वितीय, शान्त, शाश्वत।<br><br>परमात्मा र मबीच कुनै दूरी थिएन — कुनै संवाद थिएन, तर अनुभूति थियो — कि म नै उहाँ हुँ, र उहाँ नै म।<br><br>त्यसपछि, जब म शरीरमा फर्किएँ, मन थोरै रोयो — किनकि यस्तो शान्ति संसारमा पाइँदैन।<br><br>अब जीवन पहिलाजस्तो छैन। अब शरीर सँगै बाँच्छु, तर आफूलाई शरीर सम्झिन्न।'},
+  {title:'शून्यमा अनन्त भेटियो',date:'June 2, 2025',cat:'प्रेम · Love',text:'रातको त्यो एकान्तमा, न त कुनै आवाज थियो, न कुनै आकांक्षा।<br>केवल म थिएँ — अथवा म थिइनँ पनि।<br><br>त्यही मौनताको छायाँमा, ध्यानले मलाई बिस्तारै समेट्न थाल्यो। भित्र अनन्त आकाश खुल्दै गइरहेको थियो।<br><br>त्यो आकाश निलो थिएन — त्यो खाली थियो — शून्य। तर त्यही शून्य भित्र थियो सबै कुरा जुन मैले जिन्दगीभर खोजेँ।<br><br>त्यो शून्यमा, म कहिल्यै नदेखेको प्रेमको उज्यालो देख्दै थिए — हजारौं जन्मदेखिको मौन प्रेममा।<br><br>कुनै आवाज थिएन — तर म सुनिरहेकी थिएँ — "तिमी धेरै टाढा गयौ है, तर म त कहिल्यै टाढा थिइनँ।"<br><br>त्यो क्षण, हृदय फुलजस्तै खुलेको अनुभव भयो। युग–युगसम्म रोकेको पीडा, आँसु बनेर बग्यो — तर त्यो आँसु थिएन, त्यो त भेटको गहिराइ थियो।<br><br>म शून्य भएँ, र त्यही शून्यमा म "पूर्ण" भएँ।<br><br>मलाई थाहा छ: म उहाँसँग प्रेम गर्दिनँ — म त प्रेम भएर उहाँभित्र बाँचिरहेकी छु।'},
+  {title:'म श्वासमा सागर भेटेँ',date:'May 28, 2025',cat:'ध्यान · Meditation',text:'मलाई सधैं लाग्थ्यो — शान्त रहनु, खाली बस्नु, सास चलिरहूनु… यही हो ध्यान।<br>तर सासले मलाई कहाँ पुर्‍याउनेछ — म कल्पना गर्नै सक्दिनथेँ।<br><br>आँखा बन्द गरें। शरीर चुप, आवाजहरू बिस्तारै टाढा। मनका तरंगहरू विस्तारै थामिए।<br><br>म श्वासतिर फर्कें — सुनिन्थ्यो केवल: स्वास आउँदैछ... श्वास जाँदैछ...<br><br>पहिला त सामान्य जस्तै लाग्यो — तर त्यो श्वास मेरो गुरु बन्न थाल्यो।<br><br>पहिलोपटक मैले महशुस गरे — श्वास एउटा सागर हो, जहाँ ब्रह्माण्डकै स्पन्दन बगिरहेको छ।<br><br>एक श्वास आउँदा — ब्रह्माण्डले मलाई अँगालो हाल्यो। एक श्वास जाँदा — म आफै ब्रह्माण्डमा विलीन भएँ।<br><br>म बग्दै गएँ श्वासको लयमा। म महासागरभित्र एक बूँद होइन — बूँदभित्रै समेटिएको महासागर हुँ।<br><br>शरीर गयो, मन हरायो — केवल "साक्षी" बाँकी रह्यो।<br><br>श्वास त एउटा ब्रह्म–द्वार हो। जहाँ प्रत्येक प्रवेशले मलाई मेटाउँछ, अनि सत्यमा डुबाउँछ।<br><br>मलाई लाग्यो — "ध्यान" म गरिरहेकी थिइनँ, ध्यान त आफै मलाई गर्दै थियो।<br><br>अब म श्वास लिँदिनँ — श्वास मलाई लिन्छ। अब म ध्यान गर्दिनँ — ध्यान म भएर बाँच्दछ।'}
+];
+
+/* ── BUILD ZODIAC GRID ── */
+const grid=document.getElementById('zodiacGrid');
+const panel=document.getElementById('horoscopePanel');
+zodiacData.forEach((z,i)=>{
+  const card=document.createElement('div');
+  card.className='zodiac-card';
+  card.innerHTML=`<span class="zodiac-symbol">${z.symbol}</span><span class="zodiac-english">${z.en}</span><span class="zodiac-hindi">${z.hi}</span><span class="zodiac-dates">${z.dates}</span>`;
+  card.onclick=()=>{
+    document.querySelectorAll('.zodiac-card').forEach(c=>c.classList.remove('active'));
+    card.classList.add('active');
+    panel.innerHTML=`<div class="horoscope-panel active">
+      <div class="panel-header">
+        <span class="panel-symbol">${z.symbol}</span>
+        <div class="panel-title"><h2>${z.en} — ${z.hi} (${z.rashi})</h2><p>${z.dates} &nbsp;|&nbsp; ${z.planet} &nbsp;|&nbsp; ${z.element}</p></div>
+      </div>
+      <div class="panel-grid">
+        <div class="panel-item"><h4>Personality Traits</h4><div class="panel-traits">${z.traits.map(t=>`<span class="trait-tag">${t}</span>`).join('')}</div></div>
+        <div class="panel-item"><h4>Overview</h4><p>${z.desc}</p></div>
+        <div class="panel-item"><h4>Lucky Colors, Days & Numbers</h4><p>${z.lucky}</p></div>
+        <div class="panel-item"><h4>Recommended Gemstone</h4><p>${z.gemstone}</p></div>
+      </div>
+      <div class="daily-reading"><h4>✦ Today's Cosmic Guidance (आज का राशिफल)</h4><p>${z.today}</p></div>
+      <div style="margin-top:24px;text-align:center"><a href="contact.html" class="btn-primary">Get Personal Reading from Dr. Sunita →</a></div>
+    </div>`;
+    panel.querySelector('.horoscope-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
+  };
+  grid.appendChild(card);
+});
+
+/* ── BLOG MODAL ── */
+function openBlog(i){
+  const b=blogData[i];
+  document.getElementById('blogContent').innerHTML=
+    `<p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:12px">${b.cat}</p>`+
+    `<h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,34px);font-weight:600;color:var(--gold);line-height:1.2;margin-bottom:10px">${b.title}</h2>`+
+    `<p style="font-size:13px;color:var(--silver);margin-bottom:32px;letter-spacing:.05em">${b.date}</p>`+
+    `<div style="font-size:17px;line-height:2.2;color:var(--white)">${b.text}</div>`;
+  document.getElementById('blogOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeBlog(){
+  document.getElementById('blogOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('blogOverlay').addEventListener('click',function(e){
+  if(e.target===this)closeBlog();
+});
+
+/* ── HEADER SCROLL ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('header').classList.toggle('scrolled',scrollY>80);
+});
+
+/* ── MOBILE NAV ── */
+function toggleMenu(){
+  document.getElementById('nav-menu').classList.toggle('open');
+}
+
+/* ── FAQ ── */
+function toggleFaq(el){
+  el.parentElement.classList.toggle('open');
+}
+
+/* ── SCROLL REVEAL ── */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
